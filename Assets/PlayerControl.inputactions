@@ -2,13 +2,22 @@
     "name": "PlayerControl",
     "maps": [
         {
-            "name": "Player1",
+            "name": "Movement",
             "id": "12d9ae59-2733-4888-b469-dd4efdc646c5",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "Player1",
                     "type": "Value",
                     "id": "52abf532-ba66-427f-bc70-a15b2be25a49",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Player2",
+                    "type": "Value",
+                    "id": "4057c88b-d142-45f3-87ac-8e73192d1b52",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -23,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player1",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -56,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -67,79 +76,62 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player1",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "Player2",
-            "id": "73b74a2e-2e2d-4fb8-8cf5-1ed3feca359f",
-            "actions": [
-                {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "a9c3ae23-4268-404b-a6be-609663ffdd92",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "2D Vector",
-                    "id": "c50e16b8-15a8-4f1e-a81c-f638e617f3ee",
+                    "id": "ea668273-2940-4a3a-83ef-748268d25e59",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player2",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "up",
-                    "id": "181299d2-abc5-4e9c-8154-c08f55bd7d5a",
+                    "id": "8abf3455-81e4-4d2c-a637-772028ee72ff",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "3085b03d-bb71-44d6-aa5b-83b202d80c2b",
+                    "id": "b567ff74-c0d6-4191-b94c-2b87d56e1d7b",
                     "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "310c07d8-db89-4e6e-a3ce-e8d41b600909",
+                    "id": "9f4a3b94-c113-4b73-aaad-3a0ae2fe29fe",
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "ce26978a-d33a-438a-9d91-27ad700a05e5",
+                    "id": "a0e2f9b5-3e65-43ed-84a8-9ab9b4454685",
                     "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Player2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
