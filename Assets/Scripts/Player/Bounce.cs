@@ -1,9 +1,10 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class WallBounce : MonoBehaviour
+public class Bounce : MonoBehaviour
 {
     private Vector2 prevVelocity;
     private Rigidbody2D rb;
@@ -21,6 +22,7 @@ public class WallBounce : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // The players can bounce off the walls
         if (collision.gameObject.tag == "Wall")
         {
             Vector2 normal = collision.GetContact(0).normal;
@@ -32,6 +34,13 @@ public class WallBounce : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, -prevVelocity.y);
             }
+        }
+
+        // The players can bounce off of each other
+        if (collision.gameObject.tag == "Player")
+        {
+            Rigidbody2D otherRd = collision.gameObject.GetComponent<Rigidbody2D>();
+
         }
     }
 }
