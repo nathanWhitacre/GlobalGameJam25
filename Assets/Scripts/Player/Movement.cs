@@ -28,9 +28,6 @@ public class Movement : MonoBehaviour
         if (velocity.y == 0) verticalAccel = 0;
         else verticalAccel = (int) Mathf.Sign(velocity.y * rb.velocity.y);
 
-        Debug.Log(string.Format("hAccel: {0}", horizontalAccel));
-        Debug.Log(string.Format("vAccel: {0}", verticalAccel));
-
         Vector2 addVelocity = Vector2.zero;
         if (horizontalAccel != 0) {
             if (velocity.x > 0) {
@@ -48,8 +45,6 @@ public class Movement : MonoBehaviour
                 addVelocity += (verticalAccel > 0) ? new Vector2(0, -accel) : new Vector2(0, -decel);
             }
         }
-
-        // Debug.Log(addVelocity);
 
         rb.velocity += addVelocity * Time.deltaTime;
     }
