@@ -12,12 +12,16 @@ public class Health : MonoBehaviour
     private bool active;
     private GameObject otherPlayer;
 
+    [SerializeField] public AudioSource deathSound;
+    [SerializeField] public AudioSource reviveSound;
+
     // Start is called before the first frame update
     void Start()
     {
         health = 1;
         dead = false;
         active = false;
+        reviveSound.loop = false;
     }
 
     void FixedUpdate()
@@ -55,6 +59,7 @@ public class Health : MonoBehaviour
         GetComponent<CircleCollider2D>().enabled = true;
 
         yield return new WaitForSeconds(deathTime);
+        reviveSound.Play();
         health++;
         dead = false;
         active = false;
@@ -68,5 +73,17 @@ public class Health : MonoBehaviour
 
         GetComponent<CircleCollider2D>().enabled = false;
         Physics2D.IgnoreLayerCollision(6, 6, false);
+    }
+
+    public void damagePlayer()
+    {
+        deathSound.Play();
+        health--;
+    }
+
+    public void healPlayer()
+    {
+        reviveSound.Play();
+        health++;
     }
 }

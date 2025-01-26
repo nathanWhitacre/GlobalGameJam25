@@ -226,7 +226,8 @@ public class ItemRow : MonoBehaviour
             {
                 xPosition = Mathf.Abs(xPosition);
             }
-            spawnedFish = Instantiate(fish, new Vector3(xPosition, transform.position.y, 0f), transform.rotation, transform);
+            int fishIndex = Random.Range(0, fishies.Count);
+            spawnedFish = Instantiate(fishies[fishIndex], new Vector3(xPosition, transform.position.y, 0f), transform.rotation, transform);
         }
 
         //Bubble Bath

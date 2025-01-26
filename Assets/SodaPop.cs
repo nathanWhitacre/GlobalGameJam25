@@ -27,7 +27,8 @@ public class SodaPop : MonoBehaviour
             }
             //Debug.Log("SodaPop Got! " + collision.gameObject.name);
             PointsHandler pointsHandler = FindObjectOfType<PointsHandler>();
-            pointsHandler.multiplier = Mathf.CeilToInt(((float) pointsHandler.multiplier) * 1.5f);
+            //pointsHandler.multiplier = Mathf.CeilToInt(((float) pointsHandler.multiplier) * 1.5f);
+            pointsHandler.setMultiplier(Mathf.CeilToInt(((float)pointsHandler.multiplier) * 1.5f));
             Destroy(gameObject);
         }
     }

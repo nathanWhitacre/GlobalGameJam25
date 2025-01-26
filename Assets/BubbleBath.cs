@@ -28,6 +28,7 @@ public class BubbleBath : MonoBehaviour
             //Debug.Log("BUBBLEBATH Got! " + collision.gameObject.name);
             ItemRowSpawner itemRowSpawner = FindObjectOfType<ItemRowSpawner>();
             itemRowSpawner.isInBath = true;
+            itemRowSpawner.bathSound.Play();
             Destroy(gameObject);
         }
     }
