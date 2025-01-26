@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8886807908599653441}
   - component: {fileID: 1970701209640716716}
   - component: {fileID: 5645748235606248317}
+  - component: {fileID: 4967874744589859296}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -262,3 +263,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 1
+--- !u!114 &4967874744589859296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984034583271675879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef32fb4e91a17b54c89822bf19c74716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionSpeedDecrement: 0.05
+  rb1: {fileID: 8211764857250574807}

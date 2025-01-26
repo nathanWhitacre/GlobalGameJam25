@@ -275,6 +275,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef32fb4e91a17b54c89822bf19c74716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 1
+  collisionSpeedDecrement: 0.05
   rb1: {fileID: 3940768282228953152}
-  rb2: {fileID: 0}
