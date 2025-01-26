@@ -960,8 +960,8 @@ MonoBehaviour:
   bubble: {fileID: 4061024181575432225, guid: eee7110869e73d14895c5b41a96c8fd2, type: 3}
   fishSpawnPercent: 20
   fish: {fileID: 4061024181575432225, guid: 1e41355216185434f96c93b6050f0be1, type: 3}
-  maxFishSpawnHeight: 9
-  minFishSpawnHeight: 3
+  maxFishSpawnHeight: 12
+  minFishSpawnHeight: 4
   isSpawningFish: 0
   fishSpawnHeight: 0
   items: []
