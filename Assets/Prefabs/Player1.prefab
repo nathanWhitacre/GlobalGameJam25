@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accel: 8
   decel: 20
+  noInputDecel: 2
   maxSpeed: 15
 --- !u!114 &1593676746371699229
 MonoBehaviour:

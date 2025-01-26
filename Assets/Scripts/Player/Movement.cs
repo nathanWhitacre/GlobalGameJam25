@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Jobs;
 
 public class Movement : MonoBehaviour
 {
     public float accel;
     public float decel;
+    public float noInputDecel;
     public float maxSpeed;
 
     private Vector2 velocity;
@@ -57,7 +59,15 @@ public class Movement : MonoBehaviour
             }
         }
 
-        rb.velocity += addVelocity * Time.deltaTime;
+        // If there's no input, use noInputDecel
+        if (verticalAccel == 0 && horizontalAccel == 0)
+        {
+            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, noInputDecel * Time.deltaTime);
+        }
+        else
+        {
+            rb.velocity += addVelocity * Time.deltaTime;
+        }
     }
 
     /// Player Movement
