@@ -34,6 +34,17 @@ public class ItemRowSpawner : MonoBehaviour
     [SerializeField] public float fishSpawnIncreaseRate = 0.1f;
     [SerializeField] public float maxFishSpawnPercent = 20f;
 
+    [Header("")]
+    [SerializeField] public float sodaSpawnPercent = 20f;
+    [SerializeField] public float sodaSpawnIncreaseRate = 0.1f;
+    [SerializeField] public float maxSodaSpawnPercent = 20f;
+
+    [Header("")]
+    [SerializeField] public float bathSpawnPercent = 20f;
+    [SerializeField] public float bathSpawnIncreaseRate = 0.1f;
+    [SerializeField] public float maxBathSpawnPercent = 20f;
+    [HideInInspector] public bool isInBath = false;
+
     [HideInInspector] public GameObject currentRow;
     [HideInInspector] public GameObject previousRow;
 
@@ -56,11 +67,25 @@ public class ItemRowSpawner : MonoBehaviour
             spawnRow();
         }
 
+        if (isInBath)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).gameObject.GetComponent<ItemRow>() != null)
+                {
+                    transform.GetChild(i).gameObject.GetComponent<ItemRow>().isInBath = true;
+                }
+            }
+            isInBath = false;
+        }
+
         rowSpeed += (rowSpeed >= maxRowSpeed) ? 0f : speedIncreaseRate * Time.deltaTime;
         hazardSpawnPercent += (hazardSpawnPercent >= maxHazardSpawnPercent) ? 0f : hazardSpawnIncreaseRate * Time.deltaTime;
         smallHazardSpawnPercent += (smallHazardSpawnPercent >= maxSmallHazardSpawnPercent) ? 0f : smallHazardSpawnIncreaseRate * Time.deltaTime;
         bubbleSpawnPercent += (bubbleSpawnPercent >= maxBubbleSpawnPercent) ? 0f : bubbleSpawnIncreaseRate * Time.deltaTime;
         fishSpawnPercent += (fishSpawnPercent >= maxFishSpawnPercent) ? 0f : fishSpawnIncreaseRate * Time.deltaTime;
+        sodaSpawnPercent += (sodaSpawnPercent >= maxSodaSpawnPercent) ? 0f : sodaSpawnIncreaseRate * Time.deltaTime;
+        bathSpawnPercent += (bathSpawnPercent >= maxBathSpawnPercent) ? 0f : bathSpawnIncreaseRate * Time.deltaTime;
     }
 
 
