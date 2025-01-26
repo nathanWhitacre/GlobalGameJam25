@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float deathTime;
+    public bool dead;
+    public int health;
+    public float deathTime;
+
     private bool active;
-    private bool dead;
-    private int health;
     private GameObject otherPlayer;
 
     // Start is called before the first frame update
@@ -30,19 +31,6 @@ public class Health : MonoBehaviour
             active = true;
             StartCoroutine(Ghost());
         }
-    }
-
-    /// This will increase health
-    public void increaseHealth()
-    {
-        health++;
-    }
-
-    /// This will decrease health
-    [ContextMenu("DecreaseHealth")]
-    public void decreaseHealth()
-    {
-        health--;
     }
 
     private void OnTriggerStay2D(Collider2D other)   
