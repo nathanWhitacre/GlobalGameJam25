@@ -26,6 +26,9 @@ public class ItemRow : MonoBehaviour
     [HideInInspector] public bool isSpawningFish = false;
     [HideInInspector] public float fishSpawnHeight = 0f;
 
+    [HideInInspector] public float sodaSpawnPercent = 20f;
+    [SerializeField] public GameObject soda;
+
     [HideInInspector] public List<GameObject> items;
     [HideInInspector] public ItemRowSpawner itemRowSpawner;
 
@@ -39,6 +42,7 @@ public class ItemRow : MonoBehaviour
         smallHazardSpawnPercent = itemRowSpawner.smallHazardSpawnPercent;
         bubbleSpawnPercent = itemRowSpawner.bubbleSpawnPercent;
         fishSpawnPercent = itemRowSpawner.fishSpawnPercent;
+        sodaSpawnPercent = itemRowSpawner.sodaSpawnPercent;
 
         //Fish Spawn
         isSpawningFish = false;
@@ -52,6 +56,29 @@ public class ItemRow : MonoBehaviour
         items = new List<GameObject>(new GameObject[9]);
         for (int i = 0; i < items.Count; i++)
         {
+
+            //SodaPop Spawn
+            if (Random.Range(1f, 100f) <= sodaSpawnPercent) //Spawn Chance
+            {
+                //Anti-grouping Override
+                if (itemRowSpawner.previousRow != null)
+                {
+                    List<GameObject> previousItems = itemRowSpawner.previousRow.GetComponent<ItemRow>().items;
+                    if (//previousItems[Mathf.Clamp((i - 1), 0, (previousItems.Count - 1))] == null && //Previous Left
+                        //items[Mathf.Clamp((i - 1), 0, items.Count - 1)] == null && //Current Left
+                        //previousItems[i] == null && //Previous Center
+                        //previousItems[Mathf.Clamp((i + 1), 0, previousItems.Count - 1)] == null && //Previous Right
+                        true)
+                    {
+                        //Spawn Bubble
+                        float xPosition = -8f + (i * 2f);
+                        float yPosition = transform.position.y;
+                        items[i] = Instantiate(soda, new Vector3(xPosition, yPosition, 0f), transform.rotation, transform);
+                        continue;
+                    }
+
+                }
+            }
 
             //Bubble Spawn
             if (Random.Range(1f, 100f) <= bubbleSpawnPercent) //Spawn Chance

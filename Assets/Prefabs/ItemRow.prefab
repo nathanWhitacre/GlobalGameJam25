@@ -964,6 +964,8 @@ MonoBehaviour:
   minFishSpawnHeight: 4
   isSpawningFish: 0
   fishSpawnHeight: 0
+  sodaSpawnPercent: 20
+  soda: {fileID: 4061024181575432225, guid: a26707b111fda7848abda1acb4de14c9, type: 3}
   items: []
   itemRowSpawner: {fileID: 0}
 --- !u!50 &7512481654040994187

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hazard : MonoBehaviour
+public class SodaPop : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +20,11 @@ public class Hazard : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player Hit! " + collision.gameObject.name);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "Item")
-        {
-            Debug.Log("Item Hit! " + collision.gameObject.name);
-            Destroy(collision.gameObject);
+            Debug.Log("SodaPop Got! " + collision.gameObject.name);
+
+            PointsHandler pointsHandler = FindObjectOfType<PointsHandler>();
+            pointsHandler.multiplier = Mathf.CeilToInt(((float) pointsHandler.multiplier) * 1.5f);
+            Destroy(gameObject);
         }
     }
-
 }
