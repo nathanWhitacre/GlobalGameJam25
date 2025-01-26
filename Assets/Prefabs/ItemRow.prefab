@@ -966,6 +966,9 @@ MonoBehaviour:
   fishSpawnHeight: 0
   sodaSpawnPercent: 20
   soda: {fileID: 4061024181575432225, guid: a26707b111fda7848abda1acb4de14c9, type: 3}
+  bathSpawnPercent: 20
+  bath: {fileID: 4061024181575432225, guid: 4742f84424db2a748b384a8ec7eaa696, type: 3}
+  isInBath: 0
   items: []
   itemRowSpawner: {fileID: 0}
 --- !u!50 &7512481654040994187

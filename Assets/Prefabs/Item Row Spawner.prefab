@@ -44,7 +44,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d6e6981e629a84abfb35e0b7c44c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnHeight: 10
-  rowSpeed: 3
-  hazardSpawnPercent: 10
   itemRow: {fileID: 8787689471797238365, guid: 91f82d5bfa0dd3f44901c59efdad2125, type: 3}
+  spawnHeight: 20
+  rowSpeed: 4
+  speedIncreaseRate: 0.04
+  maxRowSpeed: 8
+  hazardSpawnPercent: 1
+  hazardSpawnIncreaseRate: 0.08
+  maxHazardSpawnPercent: 10
+  smallHazardSpawnPercent: 8
+  smallHazardSpawnIncreaseRate: 0.08
+  maxSmallHazardSpawnPercent: 20
+  bubbleSpawnPercent: 5
+  bubbleSpawnIncreaseRate: 0
+  maxBubbleSpawnPercent: 20
+  fishSpawnPercent: 3
+  fishSpawnIncreaseRate: 0.15
+  maxFishSpawnPercent: 20
+  sodaSpawnPercent: 3
+  sodaSpawnIncreaseRate: 0
+  maxSodaSpawnPercent: 20
+  bathSpawnPercent: 1.5
+  bathSpawnIncreaseRate: 0
+  maxBathSpawnPercent: 20
+  isInBath: 0
+  currentRow: {fileID: 0}
+  previousRow: {fileID: 0}
