@@ -20,8 +20,12 @@ public class BubbleEat : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Bubble Got! " + collision.gameObject.name);
-
+            if (collision.gameObject.layer == 0 ||
+                (collision.transform.parent.gameObject.GetComponent<Health>() != null && collision.transform.parent.gameObject.GetComponent<Health>().dead))
+            {
+                return;
+            }
+            //Debug.Log("Bubble Got! " + collision.gameObject.name);
             PointsHandler pointsHandler = FindObjectOfType<PointsHandler>();
             pointsHandler.points += pointsHandler.multiplier;
             Destroy(gameObject.transform.parent.gameObject);
