@@ -27,7 +27,8 @@ public class BubbleEat : MonoBehaviour
             }
             //Debug.Log("Bubble Got! " + collision.gameObject.name);
             PointsHandler pointsHandler = FindObjectOfType<PointsHandler>();
-            pointsHandler.points += pointsHandler.multiplier;
+            //pointsHandler.points += pointsHandler.multiplier;
+            pointsHandler.setPoints(pointsHandler.points + pointsHandler.multiplier);
             Destroy(gameObject.transform.parent.gameObject);
         }
     }

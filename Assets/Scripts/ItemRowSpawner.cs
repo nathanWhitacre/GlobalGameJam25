@@ -57,6 +57,10 @@ public class ItemRowSpawner : MonoBehaviour
     [SerializeField] public float bathSpawnIncreaseRate = 0.1f;
     [SerializeField] public float maxBathSpawnPercent = 20f;
     [HideInInspector] public bool isInBath = false;
+    [SerializeField] public AudioSource bathSound;
+
+    [Header("")]
+    [SerializeField] public MusicHandler musicHandler;
 
     [HideInInspector] public GameObject currentRow;
     [HideInInspector] public GameObject previousRow;
@@ -77,6 +81,7 @@ public class ItemRowSpawner : MonoBehaviour
 
         if (player1Health.dead && player2Health.dead)
         {
+            musicHandler.gameOver();
             pointsHandler.depthIncreaseRate = 0f;
             rowSpeed = 0f;
             speedIncreaseRate = 0f;
