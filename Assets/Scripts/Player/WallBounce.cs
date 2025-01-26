@@ -30,10 +30,10 @@ public class WallBounce : MonoBehaviour
             Vector2 normal = collision.GetContact(0).normal;
             if (normal.x != 0)
             {
-                rb.velocity = (new Vector2(-prevVelocity.x, rb.velocity.y)) * bounceForce;
+                rb.velocity = (new Vector2(-prevVelocity.x, prevVelocity.y)) * bounceForce;
             } else
             {
-                rb.velocity = (new Vector2(rb.velocity.x, -prevVelocity.y)) * bounceForce;
+                rb.velocity = (new Vector2(prevVelocity.x, -prevVelocity.y)) * bounceForce;
             }
         }
     }

@@ -51,6 +51,9 @@ public class PlayerBounce : MonoBehaviour
             Vector2 vVector1 = Quaternion.AngleAxis(systemAngle, Vector3.forward) * psuedoVector1;
             Vector2 vVector2 = Quaternion.AngleAxis(systemAngle, Vector3.forward) * psuedoVector2;
 
+            Debug.Log(string.Format("d1:{0}, d2:{1}, a1:{2}, a2:{3}", newDir1.normalized, 
+                newDir2.normalized, vVector1.normalized, vVector2.normalized));
+
             //rb1.velocity = newDir1 * bounceForce;
             //rb2.velocity = newDir2 * bounceForce;
             rb1.velocity = vVector1 * bounceForce;

@@ -47,8 +47,6 @@ public class Health : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)   
     {
-        Debug.Log(other);
-        //Debug.Log(other.transform.parent);
         if (other.transform.parent != null)
         {
             otherPlayer = other.transform.parent.gameObject;

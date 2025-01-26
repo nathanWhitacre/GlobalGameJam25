@@ -420,11 +420,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 883919838557967209, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.29
+      value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 883919838557967209, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.27
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 883919838557967209, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
       propertyPath: m_LocalPosition.z
@@ -480,8 +480,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1700340874}
     - target: {fileID: 5647660133415358315, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
-      propertyPath: collisionSpeedDecrement
-      value: 0.05
+      propertyPath: bounceForce
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6744851946779319416, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
       propertyPath: m_LocalPosition.x
