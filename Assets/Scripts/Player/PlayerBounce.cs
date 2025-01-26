@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class PlayerBounce : MonoBehaviour
 {
-    //public float bounceForce;
-    public float collisionSpeedDecrement;
+    public float bounceForce;
 
     [SerializeField] private Rigidbody2D rb1;
-    //[SerializeField] private Rigidbody2D rb2;
+    [SerializeField] private Rigidbody2D rb2;
     private Vector2 prevVelocity1;
-    //private Vector2 prevVelocity2;
+    private Vector2 prevVelocity2;
 
     void FixedUpdate()
     {
         prevVelocity1 = rb1.velocity;
-        //prevVelocity2 = rb2.velocity;
+        prevVelocity2 = rb2.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb1.velocity = collisionSpeedDecrement * prevVelocity1;
-
-        /*
+        
         // The players can bounce off of each other
         if (collision.gameObject.tag == "Player")
         {
@@ -31,10 +28,10 @@ public class PlayerBounce : MonoBehaviour
             float speed2 = prevVelocity2.magnitude;
 
             float angle1 = Vector2.SignedAngle(-prevVelocity1, normal);
-            //Vector2 newDir1 = Quaternion.AngleAxis(2 * angle1, Vector3.forward) * -prevVelocity1;
+            Vector2 newDir1 = Quaternion.AngleAxis(2 * angle1, Vector3.forward) * -prevVelocity1;
 
             float angle2 = Vector2.SignedAngle(-prevVelocity2, -normal);
-            //Vector2 newDir2 = Quaternion.AngleAxis(2 * angle2, Vector3.forward) * -prevVelocity2;
+            Vector2 newDir2 = Quaternion.AngleAxis(2 * angle2, Vector3.forward) * -prevVelocity2;
 
             Debug.Log(string.Format("angle1: {0} {1} {2}", angle1, -prevVelocity1, normal));
             Debug.Log(string.Format("angle2: {0} {1} {2}", angle2, -prevVelocity2, -normal));
@@ -59,6 +56,5 @@ public class PlayerBounce : MonoBehaviour
             rb1.velocity = vVector1 * bounceForce;
             rb2.velocity = vVector2 * bounceForce;
         }
-        */
     }
 }
