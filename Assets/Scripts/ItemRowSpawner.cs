@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemRowSpawner : MonoBehaviour
@@ -10,6 +12,11 @@ public class ItemRowSpawner : MonoBehaviour
     [SerializeField] public Movement player1Movement;
     [SerializeField] public Health player2Health;
     [SerializeField] public Movement player2Movement;
+    [SerializeField] public PointsHandler pointsHandler;
+    [SerializeField] public GameObject gameOverScreen;
+    [SerializeField] public GameObject hud;
+    [SerializeField] public TextMeshProUGUI bubblesText;
+    [SerializeField] public TextMeshProUGUI depthText;
 
     [Header("")]
     [SerializeField] public GameObject itemRow;
@@ -70,17 +77,22 @@ public class ItemRowSpawner : MonoBehaviour
 
         if (player1Health.dead && player2Health.dead)
         {
+            pointsHandler.depthIncreaseRate = 0f;
             rowSpeed = 0f;
             speedIncreaseRate = 0f;
             maxRowSpeed = 0f;
-            player1Movement.accel = 0f;
-            player1Movement.decel = 0f;
+            player1Movement.accel = 0.01f;
+            player1Movement.decel = 0.01f;
             player1Movement.noInputDecel = 10f;
-            player1Movement.maxSpeed = 0f;
-            player2Movement.accel = 0f;
-            player2Movement.decel = 0f;
+            player1Movement.maxSpeed = 0.01f;
+            player2Movement.accel = 0.01f;
+            player2Movement.decel = 0.01f;
             player2Movement.noInputDecel = 10f;
-            player2Movement.maxSpeed = 0f;
+            player2Movement.maxSpeed = 0.01f;
+            gameOverScreen.SetActive(true);
+            hud.SetActive(false);
+            bubblesText.text = pointsHandler.points.ToString();
+            depthText.text = Mathf.FloorToInt(pointsHandler.depth).ToString();
         }
 
         if (currentRow.transform.position.y <= (spawnHeight - 2))
