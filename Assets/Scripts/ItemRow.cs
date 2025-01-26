@@ -8,6 +8,7 @@ using static UnityEditor.Progress;
 
 public class ItemRow : MonoBehaviour
 {
+    public List<GameObject> fishies;
 
     [SerializeField] private Rigidbody2D rigidBody;
     [HideInInspector] public float rowSpeed = 1f;
