@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accel: 8
   decel: 20
+  maxSpeed: 15
 --- !u!114 &8886807908599653441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,3 +260,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9d64723bf26fb4ca8d0f9e3eb6145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounceForce: 1

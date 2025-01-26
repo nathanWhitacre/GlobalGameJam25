@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
 {
     public float accel;
     public float decel;
+    public float maxSpeed;
+
     private Vector2 velocity;
     private Rigidbody2D rb;
 
@@ -16,8 +18,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // use accel when input velocity and rigidbody velocity are in the same direction
         // and use decel otherwise
@@ -29,20 +30,30 @@ public class Movement : MonoBehaviour
         else verticalAccel = (int) Mathf.Sign(velocity.y * rb.velocity.y);
 
         Vector2 addVelocity = Vector2.zero;
-        if (horizontalAccel != 0) {
-            if (velocity.x > 0) {
-                addVelocity += (horizontalAccel > 0) ? new Vector2(accel, 0) : new Vector2(decel, 0);
+        if (horizontalAccel != 0)
+        {
+            if (horizontalAccel > 0)
+            {
+                if (rb.velocity.magnitude < maxSpeed)
+                {
+                    addVelocity += (velocity.x > 0) ? new Vector2(accel, 0) : new Vector2(-accel, 0);
+                }
             } else
             {
-                addVelocity += (horizontalAccel > 0) ? new Vector2(-accel, 0) : new Vector2(-decel, 0);
+                addVelocity += (velocity.x > 0) ? new Vector2(decel, 0) : new Vector2(-decel, 0);
             }
         }
-        if (verticalAccel != 0) {
-            if (velocity.y > 0) {
-                addVelocity += (verticalAccel > 0) ? new Vector2(0, accel) : new Vector2(0, decel);
+        if (verticalAccel != 0) 
+        {
+            if (verticalAccel > 0)
+            {
+                if (rb.velocity.magnitude < maxSpeed)
+                {
+                    addVelocity += (velocity.y > 0) ? new Vector2(0, accel) : new Vector2(0, -accel);
+                }
             } else
             {
-                addVelocity += (verticalAccel > 0) ? new Vector2(0, -accel) : new Vector2(0, -decel);
+                addVelocity += (velocity.y > 0) ? new Vector2(0, decel) : new Vector2(0, -decel);
             }
         }
 

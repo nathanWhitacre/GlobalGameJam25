@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class Bounce : MonoBehaviour
+public class WallBounce : MonoBehaviour
 {
+    public float bounceForce;
+
     private Vector2 prevVelocity;
     private Rigidbody2D rb;
 
@@ -26,21 +28,13 @@ public class Bounce : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             Vector2 normal = collision.GetContact(0).normal;
-            Debug.Log(prevVelocity);
             if (normal.x != 0)
             {
-                rb.velocity = new Vector2(-prevVelocity.x, rb.velocity.y);
+                rb.velocity = (new Vector2(-prevVelocity.x, rb.velocity.y)) * bounceForce;
             } else
             {
-                rb.velocity = new Vector2(rb.velocity.x, -prevVelocity.y);
+                rb.velocity = (new Vector2(rb.velocity.x, -prevVelocity.y)) * bounceForce;
             }
-        }
-
-        // The players can bounce off of each other
-        if (collision.gameObject.tag == "Player")
-        {
-            Rigidbody2D otherRd = collision.gameObject.GetComponent<Rigidbody2D>();
-
         }
     }
 }
