@@ -20,8 +20,12 @@ public class BubbleBath : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("BUBBLEBATH Got! " + collision.gameObject.name);
-
+            if (collision.gameObject.layer == 0 ||
+                (collision.transform.parent.gameObject.GetComponent<Health>() != null && collision.transform.parent.gameObject.GetComponent<Health>().dead))
+            {
+                return;
+            }
+            //Debug.Log("BUBBLEBATH Got! " + collision.gameObject.name);
             ItemRowSpawner itemRowSpawner = FindObjectOfType<ItemRowSpawner>();
             itemRowSpawner.isInBath = true;
             Destroy(gameObject);

@@ -20,8 +20,15 @@ public class BubbleSucc : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (collision.gameObject.layer == 0 ||
+                (collision.transform.parent.gameObject.GetComponent<Health>() != null && collision.transform.parent.gameObject.GetComponent<Health>().dead))
+            {
+                return;
+            }
+
+            GameObject player = collision.transform.parent.gameObject;
             Bubble bubble = transform.parent.gameObject.GetComponent<Bubble>();
-            bubble.playerTarget = collision.gameObject;
+            bubble.playerTarget = player;
             bubble.isSuccing = true;
         }
     }
