@@ -8,6 +8,8 @@ public class PointsHandler : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI pointsText;
     [SerializeField] public TextMeshProUGUI depthText;
+    [SerializeField] public AudioSource pointsSound;
+    [SerializeField] public AudioSource multiplierSound;
 
     [SerializeField] public int points = 0;
     [SerializeField] public int multiplier = 1;
@@ -27,5 +29,17 @@ public class PointsHandler : MonoBehaviour
 
         depth += depthIncreaseRate * Time.deltaTime;
         depthText.text = Mathf.FloorToInt(depth).ToString();
+    }
+
+    public void setPoints(int points)
+    {
+        pointsSound.Play();
+        this.points = points;
+    }
+
+    public void setMultiplier(int multiplier)
+    {
+        multiplierSound.Play();
+        this.multiplier = multiplier;
     }
 }
