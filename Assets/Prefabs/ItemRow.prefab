@@ -923,7 +923,7 @@ Transform:
   m_GameObject: {fileID: 8787689471797238365}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -954,7 +954,18 @@ MonoBehaviour:
   rowSpeed: 3
   hazardSpawnPercent: 20
   hazard: {fileID: 4061024181575432225, guid: 9d4f625b1827a994c80ad1c8ee47b20b, type: 3}
+  smallHazardSpawnPercent: 20
+  smallHazard: {fileID: 4061024181575432225, guid: 02d3905baf8149245a3c15430ed059c9, type: 3}
+  bubbleSpawnPercent: 20
+  bubble: {fileID: 4061024181575432225, guid: eee7110869e73d14895c5b41a96c8fd2, type: 3}
+  fishSpawnPercent: 20
+  fish: {fileID: 4061024181575432225, guid: 1e41355216185434f96c93b6050f0be1, type: 3}
+  maxFishSpawnHeight: 9
+  minFishSpawnHeight: 3
+  isSpawningFish: 0
+  fishSpawnHeight: 0
   items: []
+  itemRowSpawner: {fileID: 0}
 --- !u!50 &7512481654040994187
 Rigidbody2D:
   serializedVersion: 4
