@@ -950,6 +950,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34d1ad93fbc32242b9bdcece530a9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishies:
+  - {fileID: 4061024181575432225, guid: 1e41355216185434f96c93b6050f0be1, type: 3}
+  - {fileID: 4061024181575432225, guid: 743064c4dc4f96844bfcedd0d3a61e65, type: 3}
+  - {fileID: 4061024181575432225, guid: d89221d8d474c5e4789a082bfc0098c0, type: 3}
+  - {fileID: 4061024181575432225, guid: 84043377215c2034ca61803d1584844e, type: 3}
+  - {fileID: 4061024181575432225, guid: 360b4b6f4ee493f4ea17b45f56940b83, type: 3}
+  - {fileID: 4061024181575432225, guid: 5481bdaddde0aa646be6035ea09d403f, type: 3}
+  - {fileID: 4061024181575432225, guid: 0b5c4ebc4dc611647ade5d0a79efb507, type: 3}
+  - {fileID: 4061024181575432225, guid: 060f23acc514c3640bd745f96c71f4ee, type: 3}
   rigidBody: {fileID: 7512481654040994187}
   rowSpeed: 3
   hazardSpawnPercent: 20
@@ -964,6 +973,7 @@ MonoBehaviour:
   minFishSpawnHeight: 4
   isSpawningFish: 0
   fishSpawnHeight: 0
+  spawnedFish: {fileID: 0}
   sodaSpawnPercent: 20
   soda: {fileID: 4061024181575432225, guid: a26707b111fda7848abda1acb4de14c9, type: 3}
   bathSpawnPercent: 20
