@@ -479,10 +479,6 @@ PrefabInstance:
       propertyPath: rb2
       value: 
       objectReference: {fileID: 1700340874}
-    - target: {fileID: 5647660133415358315, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
-      propertyPath: bounceForce
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6744851946779319416, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.751025
