@@ -10,18 +10,38 @@ public class Movement : MonoBehaviour
     public float decel;
     public float noInputDecel;
     public float maxSpeed;
+    public float deadTransparency;
 
+    private bool restart;
     private Vector2 velocity;
+    private Transform spriteTransform;
+    private SpriteRenderer faceSprite;
     private Rigidbody2D rb;
+    [SerializeField] Sprite[] faceSprites;
 
     // Start is called before the first frame update
     void Start()
     {
+        restart = true;
         rb = GetComponent<Rigidbody2D>();
+        faceSprite = transform.GetChild(2).GetComponent<SpriteRenderer>();
+        spriteTransform = transform.GetChild(2).GetComponent<Transform>();
     }
 
     void FixedUpdate()
     {
+        if (!restart && GetComponent<Health>().dead)
+        {
+            changeFace();
+            restart = true;
+        }
+        if (restart && !GetComponent<Health>().dead)
+        {
+            changeFace();
+            restart = false;
+        }
+        positionFace();
+
         // use accel when input velocity and rigidbody velocity are in the same direction
         // and use decel otherwise
         int horizontalAccel;
@@ -74,5 +94,66 @@ public class Movement : MonoBehaviour
     public void movement(InputAction.CallbackContext context)
     {
         velocity = context.ReadValue<Vector2>();
+    }
+
+    /// <summary>
+    /// Changes faces of the players accordingly
+    /// </summary>
+    private void changeFace()
+    {
+        SpriteRenderer bubbleSprite = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        Color bubbleColor = bubbleSprite.color;
+        Color faceColor = faceSprite.color;
+        if (GetComponent<Health>().dead)
+        {
+            faceSprite.sprite = faceSprites[0];
+            bubbleColor.a = deadTransparency;
+            faceColor.a = deadTransparency;
+        }
+        else
+        {
+            faceSprite.sprite = faceSprites[Random.Range(1,10)];
+            bubbleColor.a = 1f;
+            faceColor.a = 1f;
+        }
+        bubbleSprite.color = bubbleColor;
+        faceSprite.color = faceColor;
+    }
+
+    /// <summary>
+    /// Positions the face of the player based on its movement
+    /// </summary>
+    private void positionFace()
+    {
+        if (GetComponent<Health>().dead)
+        {
+            spriteTransform.localPosition = -rb.velocity / maxSpeed / 3;
+            if (rb.velocity != Vector2.zero)
+            {
+                if (rb.velocity.x > 0)
+                {
+                    faceSprite.flipX = true;
+                }
+                else
+                {
+                    faceSprite.flipX = false;
+                }
+            }
+        }
+        else
+        {
+            spriteTransform.localPosition = rb.velocity / maxSpeed / 3;
+            if (rb.velocity != Vector2.zero)
+            {
+                if (rb.velocity.x > 0)
+                {
+                    faceSprite.flipX = false;
+                }
+                else
+                {
+                    faceSprite.flipX = true;
+                }
+            }
+        }
     }
 }
