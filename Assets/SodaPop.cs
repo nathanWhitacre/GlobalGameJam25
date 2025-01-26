@@ -20,8 +20,12 @@ public class SodaPop : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("SodaPop Got! " + collision.gameObject.name);
-
+            if (collision.gameObject.layer == 0 ||
+                (collision.transform.parent.gameObject.GetComponent<Health>() != null && collision.transform.parent.gameObject.GetComponent<Health>().dead))
+            {
+                return;
+            }
+            //Debug.Log("SodaPop Got! " + collision.gameObject.name);
             PointsHandler pointsHandler = FindObjectOfType<PointsHandler>();
             pointsHandler.multiplier = Mathf.CeilToInt(((float) pointsHandler.multiplier) * 1.5f);
             Destroy(gameObject);

@@ -122,6 +122,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &85187606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3263352397330028986, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
+  m_PrefabInstance: {fileID: 5192475738697419772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f078bac421a384cbae8ee816dc0fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &85187610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2363622912405602162, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
+  m_PrefabInstance: {fileID: 5192475738697419772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452800c921f253b42a87b4f431bd8f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &136571667
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +553,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item Row Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3513500529606315941, guid: 880ee80d37f5cd14ca6f19242d38347c, type: 3}
+      propertyPath: player1Health
+      value: 
+      objectReference: {fileID: 85187610}
+    - target: {fileID: 3513500529606315941, guid: 880ee80d37f5cd14ca6f19242d38347c, type: 3}
+      propertyPath: player2Health
+      value: 
+      objectReference: {fileID: 1364784686}
+    - target: {fileID: 3513500529606315941, guid: 880ee80d37f5cd14ca6f19242d38347c, type: 3}
+      propertyPath: player1Movement
+      value: 
+      objectReference: {fileID: 85187606}
+    - target: {fileID: 3513500529606315941, guid: 880ee80d37f5cd14ca6f19242d38347c, type: 3}
+      propertyPath: player2Movement
+      value: 
+      objectReference: {fileID: 1364784683}
     - target: {fileID: 9088808277848163454, guid: 880ee80d37f5cd14ca6f19242d38347c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -990,6 +1028,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1364784683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1269207236174334016, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
+  m_PrefabInstance: {fileID: 3066543384203233883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f078bac421a384cbae8ee816dc0fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1364784686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8813369067878932318, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
+  m_PrefabInstance: {fileID: 3066543384203233883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452800c921f253b42a87b4f431bd8f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1529663434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1369,6 +1429,14 @@ PrefabInstance:
       propertyPath: collisionSpeedDecrement
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5414344141115158958, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438408764517147243, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6984034583271675879, guid: cf485e105bc10c64c8b69ed7a82f3d55, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -1386,6 +1454,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 206656496279745668, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3263352397330028986, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
       propertyPath: accel
       value: 25
@@ -1401,6 +1473,10 @@ PrefabInstance:
     - target: {fileID: 3263352397330028986, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
       propertyPath: noInputDecel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428068987167167617, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5647660133415358315, guid: a3929f21ad410bf4da905efcd556fbea, type: 3}
       propertyPath: rb2
