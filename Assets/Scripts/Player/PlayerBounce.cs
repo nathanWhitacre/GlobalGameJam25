@@ -33,8 +33,8 @@ public class PlayerBounce : MonoBehaviour
             float angle2 = Vector2.SignedAngle(-prevVelocity2, -normal);
             Vector2 newDir2 = Quaternion.AngleAxis(2 * angle2, Vector3.forward) * -prevVelocity2;
 
-            Debug.Log(string.Format("angle1: {0} {1} {2}", angle1, -prevVelocity1, normal));
-            Debug.Log(string.Format("angle2: {0} {1} {2}", angle2, -prevVelocity2, -normal));
+            Debug.Log(string.Format("angle1: {0} {1} {2} {3}", angle1, -prevVelocity1, normal, speed1));
+            Debug.Log(string.Format("angle2: {0} {1} {2} {3}", angle2, -prevVelocity2, -normal, speed2));
 
             // Rotate the system such that the players bounce off each other via the y-axis
             // speed1 * cos(angle1) + (-speed2) * cos(angle2) = v_1xf + v_2xf
@@ -43,8 +43,8 @@ public class PlayerBounce : MonoBehaviour
             // 
             float v_1xf = speed1 * Mathf.Cos(Mathf.Deg2Rad * angle1);
             float v_2xf = speed2 * Mathf.Cos(Mathf.Deg2Rad * angle2);
-            float v_1yf = speed1 * Mathf.Sin(Mathf.Deg2Rad * angle1);
-            float v_2yf = speed2 * Mathf.Sin(Mathf.Deg2Rad * angle2);
+            float v_1yf = -speed1 * Mathf.Sin(Mathf.Deg2Rad * angle1);
+            float v_2yf = -speed2 * Mathf.Sin(Mathf.Deg2Rad * angle2);
             Vector2 psuedoVector1 = new Vector2(v_1xf, v_1yf);
             Vector2 psuedoVector2 = new Vector2(v_2xf, v_2yf);
             float systemAngle = Vector2.SignedAngle(normal, Vector2.left);
@@ -53,6 +53,8 @@ public class PlayerBounce : MonoBehaviour
 
             Debug.Log(string.Format("d1:{0}, d2:{1}, a1:{2}, a2:{3}", newDir1.normalized, 
                 newDir2.normalized, vVector1.normalized, vVector2.normalized));
+            Debug.DrawRay(vVector1, normal, Color.blue, 2f);
+            Debug.DrawRay(psuedoVector1, normal, Color.red, 2f);
 
             //rb1.velocity = newDir1 * bounceForce;
             //rb2.velocity = newDir2 * bounceForce;
