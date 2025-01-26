@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class PlayerBounce : MonoBehaviour
 {
-    public float bounceForce;
+    //public float bounceForce;
+    public float collisionSpeedDecrement;
 
     [SerializeField] private Rigidbody2D rb1;
-    [SerializeField] private Rigidbody2D rb2;
+    //[SerializeField] private Rigidbody2D rb2;
     private Vector2 prevVelocity1;
-    private Vector2 prevVelocity2;
+    //private Vector2 prevVelocity2;
 
     void FixedUpdate()
     {
         prevVelocity1 = rb1.velocity;
-        prevVelocity2 = rb2.velocity;
+        //prevVelocity2 = rb2.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        rb1.velocity = collisionSpeedDecrement * prevVelocity1;
+
+        /*
         // The players can bounce off of each other
         if (collision.gameObject.tag == "Player")
         {
@@ -55,18 +59,6 @@ public class PlayerBounce : MonoBehaviour
             rb1.velocity = vVector1 * bounceForce;
             rb2.velocity = vVector2 * bounceForce;
         }
-    }
-
-    private float getPsuedoAngle()
-    {
-
-        return 0;
-    }
-
-    // Gets the x velocity for player 1
-    private float xVelocity1()
-    {
-
-        return 0;
+        */
     }
 }
