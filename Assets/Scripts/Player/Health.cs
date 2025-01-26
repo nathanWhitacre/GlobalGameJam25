@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int health;
-
     [SerializeField] private float deathTime;
     private bool active;
     private bool dead;
-    [SerializeField] private GameObject otherPlayer;
+    private int health;
+    private GameObject otherPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +47,15 @@ public class Health : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)   
     {
-        otherPlayer = other.gameObject;
+        Debug.Log(other);
+        //Debug.Log(other.transform.parent);
+        if (other.transform.parent != null)
+        {
+            otherPlayer = other.transform.parent.gameObject;
+        } else
+        {
+            otherPlayer = other.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -59,6 +66,8 @@ public class Health : MonoBehaviour
     IEnumerator Ghost()
     {
         Physics2D.IgnoreLayerCollision(6, 6, true);
+        GetComponent<CircleCollider2D>().enabled = true;
+
         yield return new WaitForSeconds(deathTime);
         health++;
         dead = false;
@@ -70,6 +79,8 @@ public class Health : MonoBehaviour
             currOtherPlayer.gameObject.GetComponent<Health>().health = 0;
             currOtherPlayer = null;
         }
+
+        GetComponent<CircleCollider2D>().enabled = false;
         Physics2D.IgnoreLayerCollision(6, 6, false);
     }
 }
